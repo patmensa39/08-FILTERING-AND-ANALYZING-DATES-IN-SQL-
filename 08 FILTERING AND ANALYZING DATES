@@ -1,0 +1,30 @@
+--08 FILTERING AND ANALYZING DATES
+/* How many invoices were billed on 2010-05-22 00:00:00?
+Created by Patrick Mensah 
+Date Created: 04/07/2022
+Description: The query shows how many invoices were billed on 2010-05-22 00:00:00
+*/
+SELECT 
+     InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address', 
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+    InvoiceDate = '2010-05-22 00:00:00'
+ORDER BY 
+    InvoiceDate
+    
+-- This is also another way of doing it in a simple way. The only difference is that, you dont have to include the time portion.
+SELECT 
+     InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address', 
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+    DATE(InvoiceDate) = '2010-05-22'
+ORDER BY 
+    InvoiceDate
